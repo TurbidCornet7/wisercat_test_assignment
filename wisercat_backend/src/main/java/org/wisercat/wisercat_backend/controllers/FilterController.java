@@ -1,8 +1,7 @@
 package org.wisercat.wisercat_backend.controllers;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.wisercat.wisercat_backend.domain.DTO.FilterDto;
 import org.wisercat.wisercat_backend.domain.Filter;
 import org.wisercat.wisercat_backend.services.FilterService;
 
@@ -22,6 +21,11 @@ public class FilterController {
     @GetMapping("/filters")
     public List<Filter> getAllFilters() {
         return filterService.findAll();
+    }
+
+    @PostMapping("/filters")
+    public Filter createFilter(@RequestBody FilterDto filter) {
+        return filterService.save(filter);
     }
 
 

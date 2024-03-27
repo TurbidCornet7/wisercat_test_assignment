@@ -5,7 +5,7 @@ import org.wisercat.wisercat_backend.domain.Filter;
 import org.wisercat.wisercat_backend.domain.enums.ConditionType;
 import org.wisercat.wisercat_backend.domain.enums.CriteriaType;
 
-import java.util.Collections;
+import java.util.List;
 
 public class TestUtil {
     public static Criteria createTestCriteria() {
@@ -21,7 +21,7 @@ public class TestUtil {
         return Filter.builder()
                 .name("test_filter")
                 .id(1L)
-                .criteria(Collections.singleton(criteria))
+                .criteria(List.of(criteria))
                 .build();
     }
 }

@@ -11,7 +11,7 @@ import org.wisercat.wisercat_backend.domain.enums.ConditionType;
 import org.wisercat.wisercat_backend.domain.enums.CriteriaType;
 import org.wisercat.wisercat_backend.repositories.FilterRepository;
 
-import java.util.Collections;
+import java.util.List;
 
 @Configuration
 public class LoadDatabase {
@@ -20,7 +20,7 @@ public class LoadDatabase {
     @Bean
     CommandLineRunner initDatabase(FilterRepository repository) {
         Criteria criteria = Criteria.builder().id(1L).type(CriteriaType.AMOUNT).conditionType(ConditionType.LESS_THAN).conditionValue("4").build();
-        Filter filter = Filter.builder().name("Test").id(1L).criteria(Collections.singleton(criteria)).build();
+        Filter filter = Filter.builder().name("Test").id(1L).criteria(List.of(criteria)).build();
         return args -> log.info("Preloading " + repository.save(filter));
     }
 }
