@@ -1,5 +1,5 @@
-import './App.css'
 import FilterList from "./FilterList.jsx";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
 
