@@ -1,19 +1,14 @@
-import React, {useEffect, useState} from "react";
-
-export default function FilterList() {
-    const [filters, setFilters] = useState([])
+import React, {useState} from "react";
+export default function FilterList(props) {
+    const filters = props.filters
     const [selectedItem, setSelectedItem] = useState(null)
-    useEffect(() => {
-        fetch('http://localhost:8080/filters').then(response => response.json()).then(data => setFilters(data));
-    }, []);
+
     const handleClick = (item) => {
         setSelectedItem(item)
     }
 
     return (<div className={"container text-center"}>
-        <header>
-            <h1 className={"mb-4"}>Filters</h1>
-        </header>
+
         <div>
             <table className={"table table-hover table-striped"}>
                 <thead>
@@ -56,3 +51,4 @@ export default function FilterList() {
 
 
 }
+

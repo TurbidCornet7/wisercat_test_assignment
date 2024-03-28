@@ -18,5 +18,4 @@ public class CriteriaDto {
     private CriteriaType type;
     private ConditionType conditionType;
     private String conditionValue;
-    private LocalDate dateConditionValue;
 }

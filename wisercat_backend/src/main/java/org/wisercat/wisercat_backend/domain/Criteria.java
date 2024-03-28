@@ -25,6 +25,5 @@ public class Criteria {
     @Enumerated(EnumType.STRING)
     private ConditionType conditionType;
     private String conditionValue;
-    private LocalDate dateConditionValue;
 
 }
