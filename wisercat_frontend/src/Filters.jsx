@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import FilterList from "./FilterList.jsx";
 import AddFilterForm from "./AddFilterForm.jsx";
+import { Modal } from "react-bootstrap";
 
 export default function Filters() {
   const [filters, setFilters] = useState([]);
   const [isAddFilterOpen, setIsAddFilterOpen] = useState(false);
-
+  const [openInModal, setOpenInModal] = useState(false);
   const fetchFilters = async () => {
     try {
       const response = await fetch("http://localhost:8080/filters");
@@ -56,10 +57,26 @@ export default function Filters() {
       <header>
         <h1 className={"mb-4"}>Filters</h1>
       </header>
+
       <button className={"btn btn-primary"} onClick={toggleModal}>
         Add Filter
       </button>
-      {isAddFilterOpen && <AddFilterForm onAddFilter={handleAddFilter} />}
+      <label>
+        Open in modal
+        <input
+          type="checkbox"
+          checked={openInModal}
+          onChange={() => setOpenInModal(!openInModal)}
+        />
+      </label>
+      {isAddFilterOpen && !openInModal && (
+        <AddFilterForm onAddFilter={handleAddFilter} />
+      )}
+      {openInModal && isAddFilterOpen && (
+        <Modal show={isAddFilterOpen} onHide={toggleModal}>
+          <AddFilterForm onAddFilter={handleAddFilter} />
+        </Modal>
+      )}
       <FilterList filters={filters} />
     </div>
   );

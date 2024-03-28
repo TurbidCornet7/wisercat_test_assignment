@@ -21,6 +21,11 @@ public class LoadDatabase {
     CommandLineRunner initDatabase(FilterRepository repository) {
         Criteria criteria = Criteria.builder().id(1L).type(CriteriaType.AMOUNT).conditionType(ConditionType.LESS_THAN).conditionValue("4").build();
         Filter filter = Filter.builder().name("Test").id(1L).criteria(List.of(criteria)).build();
-        return args -> log.info("Preloading " + repository.save(filter));
+        Criteria criteria2 = Criteria.builder().id(2L).type(CriteriaType.TITLE).conditionType(ConditionType.CONTAINS).conditionValue("test").build();
+        Filter filter2 = Filter.builder().name("Test 2").id(2L).criteria(List.of(criteria2)).build();
+        return args -> {
+            log.info("Preloading " + repository.save(filter));
+            log.info("Preloading " + repository.save(filter2));
+        };
     }
 }

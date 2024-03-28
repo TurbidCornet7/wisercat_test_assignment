@@ -10,7 +10,7 @@ import java.util.List;
 public class TestUtil {
     public static Criteria createTestCriteria() {
         return Criteria.builder()
-                .id(1L)
+                .id(100L)
                 .type(CriteriaType.AMOUNT)
                 .conditionType(ConditionType.LESS_THAN)
                 .conditionValue("2")
@@ -20,7 +20,7 @@ public class TestUtil {
     public static Filter createTestFilter(final Criteria criteria) {
         return Filter.builder()
                 .name("test_filter")
-                .id(1L)
+                .id(100L)
                 .criteria(List.of(criteria))
                 .build();
     }
