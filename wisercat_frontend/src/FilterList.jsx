@@ -10,7 +10,7 @@ export default function FilterList(props) {
     return (<div className={"container text-center"}>
 
         <div>
-            <table className={"table table-hover table-striped"}>
+            <table className={"table table-hover table-striped table-bordered"}>
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -25,7 +25,7 @@ export default function FilterList(props) {
                     </tr>
                     {selectedItem && selectedItem.id === filter.id && selectedItem.criteria && (<tr>
                         <td colSpan={"2"}>
-                            <table className={"table table-striped"}>
+                            <table className={"table table-striped "}>
                                 <thead>
                                 <tr>
                                     <th>type</th>
