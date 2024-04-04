@@ -1,4 +1,6 @@
 # Wisercat test assignment
+Built using Spring Boot and React with Bootstrap
+Database is a postgreSQL running in a docker container
 
 Starting the backend
 --------------------
